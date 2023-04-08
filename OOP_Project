@@ -1,0 +1,34 @@
+class Faculty:
+    def __init__(self, name, department):
+        self.name = name
+        self.department = department
+
+class Institute:
+    def __init__(self, name, location):
+        self.name = name
+        self.location = location
+        self.faculties = []
+
+    def add_faculty(self, faculty):
+        self.faculties.append(faculty)
+
+    def remove_faculty(self, faculty):
+        self.faculties.remove(faculty)
+
+    def print_faculties(self):
+        for faculty in self.faculties:
+            print(f"{faculty.name} - {faculty.department}")
+
+if __name__ == '__main__':
+    faculty1 = Faculty("Saad Ahmed", "Computer Science")
+    faculty2 = Faculty("Roshan Malik", "Mathematics")
+    faculty3 = Faculty("Miss Kainyat", "Physics")
+
+    institute = Institute("IUB Institute", "Bahawalpur")
+    institute.add_faculty(faculty1)
+    institute.add_faculty(faculty2)
+    institute.print_faculties()
+
+    print("Removing faculty1 from institute...")
+    institute.remove_faculty(faculty1)
+    institute.print_faculties()
